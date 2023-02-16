@@ -1,2 +1,2 @@
 #!/bin/bash
-gcc -E $CFILE -o c
+CFILE="main.c" MYFILE=$(basename "$CFILE" .c) gcc -c "$CFILE" -o "$MTFILE.o" 
