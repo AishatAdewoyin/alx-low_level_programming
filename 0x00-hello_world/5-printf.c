@@ -1,8 +1,9 @@
 #include <stdio.h>
 
 /*
+* main - Entry point
 * Description: a new program that prints
-* return: nothing
+* return: 0
 */
 
 int main(void)
