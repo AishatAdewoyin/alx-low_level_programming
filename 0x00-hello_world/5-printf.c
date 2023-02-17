@@ -1,8 +1,8 @@
 #include <stdio.h>
 
 /*
-* main - entry point 
-* description:  a new program that prints given words
+* main-entry point 
+* Description:  a new program that prints given words
 * return: nothing
 */
 
