@@ -3,7 +3,7 @@
 /**
 * main - Entry point
 * Description: a new program that prints
-* return: 0
+* return: Always 0 (Success)
 */
 
 int main(void)
