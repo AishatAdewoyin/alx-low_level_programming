@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 /*
-* main: a new program that prints given words
+* main - entry point 
+* description:  a new program that prints given words
 * return: nothing
 */
 
