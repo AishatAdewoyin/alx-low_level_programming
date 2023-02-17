@@ -1,7 +1,8 @@
 #include <stdio.h>
 
 /*
-* a new program that prints given words
+* main: a new program that prints given words
+* return: nothing
 */
 
 int main(void)
