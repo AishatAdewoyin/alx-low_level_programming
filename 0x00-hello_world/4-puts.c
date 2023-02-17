@@ -1,9 +1,10 @@
 #include <stdio.h>
-/*
- * Created by Aishat. This program prints without the printf function
- * Puts:Programming is like building a multilingual puzzle
- * return:void(0)
- */
+
+/**
+* main - Entry point
+* Description: a new program that puts certain words
+* Return: Always 0 (Success)
+*/
 
 int main(void)
 {
