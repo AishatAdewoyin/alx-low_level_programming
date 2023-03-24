@@ -1,79 +1,46 @@
+#include "variadic_functions.h"
 #include <stdarg.h>
 #include <stdio.h>
-#include "variadic_functions.h"
 
 /**
- * print_char - prints a character
- * @valist: the va_list containing the character to print
- */
-void print_char(va_list valist)
-{
-printf("%c", va_arg(valist, int));
-}
-
-/**
- * print_int - prints an integer
- * @valist: the va_list containing the integer to print
- */
-void print_int(va_list valist)
-{
-printf("%d", va_arg(valist, int));
-}
-
-/**
- * print_float - prints a float
- * @valist: the va_list containing the float to print
- */
-void print_float(va_list valist)
-{
-printf("%f", va_arg(valist, double));
-}
-
-/**
- * print_string - prints a string
- * @valist: the va_list containing the string to print
- */
-void print_string(va_list valist)
-{
-char *str = va_arg(valist, char *);
-if (str == NULL)
-str = "(nil)";
-printf("%s", str);
-}
-
-/**
- * print_all - prints anything
- * @format: a list of types of arguments passed to the function
- */
+* print_all - prints anything
+* @format: list of types of arguments passed to the function
+*/
 void print_all(const char * const format, ...)
 {
-va_list valist;
-int i = 0, j = 0;
-char *sep = "";
-print_t prints[] = {
-{"c", print_char},
-{"i", print_int},
-{"f", print_float},
-{"s", print_string},
-{NULL, NULL}
-};
-va_start(valist, format);
-while (format && format[i])
+int i = 0;
+char *str, *sep = "";
+va_list list;
+va_start(list, format);
+if (format)
 {
-j = 0;
-while (prints[j].type)
+while (format[i])
 {
-if (format[i] == *(prints[j].type))
+switch (format[i])
 {
-printf("%s", sep);
-prints[j].func(valist);
-sep = ", ";
+case 'c':
+printf("%s%c", sep, va_arg(list, int));
 break;
+case 'i':
+printf("%s%d", sep, va_arg(list, int));
+break;
+case 'f':
+printf("%s%f", sep, va_arg(list, double));
+break;
+case 's':
+str = va_arg(list, char *);
+if (!str)
+str = "(nil)";
+printf("%s%s", sep, str);
+break;
+default:
+i++;
+continue;
 }
-j++;
-}
+sep = ", ";
 i++;
 }
+}
 printf("\n");
-va_end(valist);
+va_end(list);
 }
