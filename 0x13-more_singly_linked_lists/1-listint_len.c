@@ -2,19 +2,19 @@
 
 /**
  * listint_len - it should  return the number of elements in a linked list
- * @h: links lists of types accross  listint_t
+ * @h: points to the head of the list
  *
- * Return: returning the number of nodes
+ * Return: returns the number of nodes in the list
  */
+
 size_t listint_len(const listint_t *h)
 {
- size_t num = 0;
+size_t count = 0;
 
- while (h)
- {
- num++;
- h = h->next;
- }
-
- return (num);
+while (h != NULL)
+{
+h = h->next;
+count++;
+}
+return (count);
 }

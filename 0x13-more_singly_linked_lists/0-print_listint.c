@@ -6,16 +6,17 @@
  *
  * Return: then returns the number of nodes
  */
+
 size_t print_listint(const listint_t *h)
 {
- size_t num = 0;
 
- while (h)
- {
- printf("%d\n", h->n);
- num++;
- h = h->next;
- }
+size_t count = 0;
 
- return (num);
+while (h != NULL)
+{
+printf("%d\n", h->n);
+h = h->next;
+count++;
+}
+return (count);
 }
