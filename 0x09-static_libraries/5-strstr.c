@@ -1,3 +1,5 @@
+#include "main.h"
+
 /**
  * _strstr - This function finds the occurrence of needle in the string haystack.
  * @haystack: string searched.
