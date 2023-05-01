@@ -16,5 +16,5 @@ char *_memcpy(char *dest, const char *src, size_t n)
     while (n--)
         *pdest++ = *psrc++;
 
-    return dest;
+    return (dest);
 }
