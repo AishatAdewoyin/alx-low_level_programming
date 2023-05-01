@@ -1,12 +1,14 @@
 #include "main.h"
 /**
- * _strcmp - This function compares 2 strings
- * @s1: string to compare
- * @s2: string compared against
- * Return: 0 if equal and non-zero characters if not
- * Date: 1-03-2023
- */
+* _strcmp - This function compares 2 strings
+* @s1: string to compare
+* @s2: string compared against
+* Return: 0 if equal and non-zero characters if not
+* Date: 1-03-2023
+*/
+
 int _strcmp(char *s1, char *s2)
+
 {
 	int a, b = 0;
 
