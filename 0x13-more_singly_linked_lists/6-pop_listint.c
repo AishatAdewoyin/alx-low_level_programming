@@ -8,18 +8,18 @@
  * Return: The head node's data (n), or 0 if the linked list is empty.
  */
 int pop_listint(listint_t **head)
+
 {
-    int n;
-    listint_t *temp;
+int n;
+listint_t *temp;
 
-    if (*head == NULL)
-        return (0);
+if (*head == NULL)
+return (0);
 
-    temp = *head;
-    n = temp->n;
-    *head = temp->next;
-    free(temp);
+temp = *head;
+n = temp->n;
+*head = temp->next;
+free(temp);
 
-    return (n);
+return (n);
 }
-
