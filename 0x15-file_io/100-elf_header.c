@@ -13,7 +13,7 @@ void print_entry(unsigned long int e_entry, const unsigned char *e_ident);
 void close_elf(int elf);
 
 /*
-* Checks whether the given file contains an ELF
+* check_elf: Checks whether the given file contains an ELF
 * header by verifying its magic number.
 * If it is not an ELF file, the function prints
 * an error message to stderr and exits with code 98.
@@ -240,14 +240,14 @@ exit(98);
 
 #define USAGE "Usage: %s <file>\n"
 
-/* Print an error message and exit with failure */
+/* fail: Print an error message and exit with failure */
 void fail(char *msg)
 {
 perror(msg);
 exit(EXIT_FAILURE);
 }
 
-/* Open the ELF file and return the file descriptor */
+/* open_elf: Open the ELF file and return the file descriptor */
 int open_elf(char *filename)
 {
 int fd = open(filename, O_RDONLY);
@@ -256,14 +256,14 @@ fail("open");
 return (fd);
 }
 
-/* Read the ELF header from the file */
+/* read_elf: Read the ELF header from the file */
 void read_elf_header(int fd, Elf64_Ehdr *header)
 {
 if (read(fd, header, sizeof(*header)) != sizeof(*header))
 fail("read");
 }
 
-/* Check if the file is a valid ELF file */
+/* check_elf_header: Check if the file is a valid ELF file */
 void check_elf_header(Elf64_Ehdr *header)
 {
 if (header->e_ident[EI_MAG0] != ELFMAG0 ||
@@ -276,7 +276,7 @@ exit(EXIT_FAILURE);
 }
 }
 
-/* Print the magic number of the ELF header */
+/* print_magic_number: Print the magic number of the ELF header */
 void print_magic_number(unsigned char *ident)
 {
 printf("  Magic:   ");
@@ -285,7 +285,7 @@ printf("%02x ", ident[i]);
 printf("\n");
 }
 
-/* Print the class of the ELF header */
+/* print_clas: Print the class of the ELF header */
 void print_class(unsigned char *ident)
 {
 printf("Class: ");
@@ -305,7 +305,7 @@ printf("<unknown: %x>\n", ident[EI_CLASS]);
 }
 }
 
-/* Print the data encoding of the ELF header */
+/* print_data: Print the data encoding of the ELF header */
 void print_data(unsigned char *ident)
 {
 printf("Data: ");
@@ -325,7 +325,7 @@ printf("<unknown: %x>\n", ident[EI_DATA]);
 }
 }
 
-/* Print the version of the ELF header */
+/* print_version: Print the version of the ELF header */
 void print_version(unsigned char *ident)
 {
 printf("Version: ");
@@ -343,7 +343,7 @@ printf("<unknown: %d>\n", ident[EI_VERSION]);
 }
 
 /*
-* Print the operating system and
+* print_osabi: Print the operating system and
 * ABI of the ELF header
 */
 void print_osabi(unsigned char *ident)
