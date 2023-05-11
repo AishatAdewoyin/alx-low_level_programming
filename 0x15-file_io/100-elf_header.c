@@ -414,4 +414,60 @@ printf(" mips32r2");
 if (e_flags & EF_MIPS_ARCH_ASE_MIPS64R2)
 printf(" mips64r2");
 printf("\n");
+  
+  #include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <sys/mman.h>
+
+#include "main.h"
+
+int main(int argc, char **argv) {
+    int fd;
+    struct stat st;
+    unsigned char *map_start, *map_end, *e_ident;
+
+    if (argc != 2) {
+        fprintf(stderr, "Usage: %s <ELF file>\n", argv[0]);
+        exit(1);
+    }
+
+    if ((fd = open(argv[1], O_RDONLY)) == -1) {
+        perror("open");
+        exit(1);
+    }
+
+    if (fstat(fd, &st) == -1) {
+        perror("fstat");
+        exit(1);
+    }
+
+    map_start = mmap(NULL, st.st_size, PROT_READ, MAP_PRIVATE, fd, 0);
+    if (map_start == MAP_FAILED) {
+        perror("mmap");
+        exit(1);
+    }
+
+    map_end = map_start + st.st_size;
+
+    e_ident = (unsigned char *) map_start;
+    check_elf(e_ident);
+
+    print_magic(e_ident);
+    print_class(e_ident);
+    print_data(e_ident);
+    print_version(e_ident);
+    print_osabi(e_ident);
+    print_abi(e_ident);
+    print_type(*(unsigned int *)(e_ident + 16), e_ident);
+    print_entry(*(unsigned long int *)(e_ident + 24), e_ident);
+
+    close_elf(fd);
+    munmap(map_start, st.st_size);
+
+    return 0;
+}
+
 }
