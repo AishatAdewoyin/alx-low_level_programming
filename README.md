@@ -2,4 +2,4 @@
 
 ### ALX low level programming in C language.
 
-### Getting my hands dirty in C 🥰
+### Getting my hands dirty with C
