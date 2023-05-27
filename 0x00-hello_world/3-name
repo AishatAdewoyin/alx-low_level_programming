@@ -1,2 +1,7 @@
+/**
+* This lines of code compiles the $CFILE
+* into an object file cisfun.o
+*/
+
 #!/bin/bash
 gcc -c $CFILE -o cisfun
