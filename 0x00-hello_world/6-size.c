@@ -2,7 +2,8 @@
 
 /**
 * main - Entry point
-* Description: a new program that prints
+* Description: this program prints the size of
+* a data type in bytes
 * Return: Always 0 (Success)
 */
 
