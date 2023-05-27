@@ -1,2 +1,11 @@
+/**
+* #!/bin/bash: This allows the script to run, 
+* using bash interpreter
+* gcc: compiler
+* -S: flag that tells gcc to 
+* compile C into assembly lang
+* $CFILE: just a representation of a file
+*/
+
 #!/bin/bash
 gcc -S $CFILE
