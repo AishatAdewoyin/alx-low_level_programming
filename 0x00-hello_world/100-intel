@@ -1,2 +1,7 @@
+/**
+* -masm=intel: Tell gcc to use intel assembly lang syntax
+* instead of it's normal AT&T
+*/
+
 #!/bin/bash
 gcc -S -masm=intel $CFILE
