@@ -46,7 +46,7 @@ Understanding variadic functions in C programming, which can accept a variable n
 [0x13: More on Singly Linked Lists](./0x13-more_singly_linked_lists/)
 In-depth coverage of singly linked lists in C programming. Topics include list creation, traversal, insertion, deletion, and memory management.
 
-[0x14: Bit Manipulation](./0x14-bit_ manipulation/)
+[0x14: Bit Manipulation](./0x14-bit_ manipulation)
 Exploration of bit manipulation techniques in C programming, including bitwise operators and their applications for efficient coding.
 
 [0x15: File I/O](./0x15-file_io/)
