@@ -93,6 +93,7 @@ long alph[] = {
 0x723161513346655a, 0x6b756f494b646850 };
 (void)argc;
 
+<<<<<<< HEAD
 /* Calculate the length of the username */
 for (len = 0; argv[1][len]; len++)
 ;
@@ -126,4 +127,39 @@ keygen[6] = '\0';
 for (ch = 0; keygen[ch]; ch++)
 printf("%c", keygen[ch]);
 return (0);
+=======
+    /* Calculate the length of the username */
+    for (len = 0; argv[1][len]; len++)
+        ;
+    /* f1: Calculate the first character of the key */
+    keygen[0] = ((char *)alph)[(len ^ 59) & 63];
+    /* f2: Calculate the second character of the key */
+    ch = vch = 0;
+    while (vch < len)
+    {
+        ch = ch + argv[1][vch];
+        vch = vch + 1;
+    }
+    keygen[1] = ((char *)alph)[(ch ^ 79) & 63];
+    /* f3: Calculate the third character of the key */
+    ch = 1;
+    vch = 0;
+    while (vch < len)
+    {
+        ch = argv[1][vch] * ch;
+        vch = vch + 1;
+    }
+    keygen[2] = ((char *)alph)[(ch ^ 85) & 63];
+    /* f4: Calculate the fourth character of the key */
+    keygen[3] = ((char *)alph)[f4(argv[1], len)];
+    /* f5: Calculate the fifth character of the key*/
+    keygen[4] = ((char *)alph)[f5(argv[1], len)];
+    /* f6: Calculate the sixth character of the key */
+    keygen[5] = ((char *)alph)[f6(argv[1])];
+    keygen[6] = '\0';
+    for (ch = 0; keygen[ch]; ch++)
+        printf("%c", keygen[ch]);
+    return (0);
+>>>>>>> a39b032f4ce4ac516c08fe0b0048c795e775fdeb
 }
+
