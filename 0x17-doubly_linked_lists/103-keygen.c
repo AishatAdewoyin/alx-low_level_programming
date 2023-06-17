@@ -160,6 +160,4 @@ return (0);
     for (ch = 0; keygen[ch]; ch++)
         printf("%c", keygen[ch]);
     return (0);
->>>>>>> a39b032f4ce4ac516c08fe0b0048c795e775fdeb
-}
 
