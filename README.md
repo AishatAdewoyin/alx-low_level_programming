@@ -37,7 +37,7 @@ This repository contains a collection of my C programming learnings as part of m
 - [0x15: File I/O](./0x15-file_io/): Understanding file input/output operations in C programming. Topics include file handling, reading from and writing to files, and error handling.
 
 ## Author
-### Hi! I'm Aishat Adeladun Adewoyin
+### Aishat Adeladun Adewoyin
 I created this repository to serve as a record of my ALX Low-Level Programming experience. Feel free to explore my directories to learn more about each topic I have learned so far.
 
 All the best!
